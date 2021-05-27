@@ -53,12 +53,19 @@ body {
 }
 
 .splash-btn {
-  font-size: 2rem;
-  margin-left: 2rem;
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .splash-btn:first-child {
   margin-left: 0;
+}
+
+.back-button {
+  display: flex;
+  justify-content: left;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .container {

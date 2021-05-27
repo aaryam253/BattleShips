@@ -129,8 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (allShipsPlaced) {
         infoDisplay.innerHTML = "";
         playGameMulti(socket);
-      }
-      else infoDisplay.innerHTML = "Please place all ships first!";
+      } else infoDisplay.innerHTML = "Please place all ships first!";
     });
 
     // Setup event listeners for firing
@@ -174,8 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
     generate(shipArray[4]);
 
     startButton.addEventListener("click", () => {
-      setupButtons.style.display = "none";
-      playGameSingle();
+      if (allShipsPlaced) {
+        setupButtons.style.display = "none";
+        playGameSingle();
+      } else infoDisplay.innerHTML = "Please place all ships first!";
     });
   }
 
@@ -298,87 +299,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let shipLastId = lastShipIndex + parseInt(this.dataset.id);
     // console.log(shipLastId)
     const notAllowedHorizontal = [
-      0,
-      10,
-      20,
-      30,
-      40,
-      50,
-      60,
-      70,
-      80,
-      90,
-      1,
-      11,
-      21,
-      31,
-      41,
-      51,
-      61,
-      71,
-      81,
-      91,
-      2,
-      22,
-      32,
-      42,
-      52,
-      62,
-      72,
-      82,
-      92,
-      3,
-      13,
-      23,
-      33,
-      43,
-      53,
-      63,
-      73,
-      83,
+      0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 1, 11, 21, 31, 41, 51, 61, 71, 81,
+      91, 2, 22, 32, 42, 52, 62, 72, 82, 92, 3, 13, 23, 33, 43, 53, 63, 73, 83,
       93,
     ];
     const notAllowedVertical = [
-      99,
-      98,
-      97,
-      96,
-      95,
-      94,
-      93,
-      92,
-      91,
-      90,
-      89,
-      88,
-      87,
-      86,
-      85,
-      84,
-      83,
-      82,
-      81,
-      80,
-      79,
-      78,
-      77,
-      76,
-      75,
-      74,
-      73,
-      72,
-      71,
-      70,
-      69,
-      68,
-      67,
-      66,
-      65,
-      64,
-      63,
-      62,
-      61,
-      60,
+      99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82,
+      81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64,
+      63, 62, 61, 60,
     ];
 
     let newNotAllowedHorizontal = notAllowedHorizontal.splice(
